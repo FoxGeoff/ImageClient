@@ -15,11 +15,13 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { MessageService } from './services/message.service';
 import { HeroesService } from './heroes/heroes.service';
 import { HttpErrorHandler } from './services/http-error-handler.service';
+import { ImagesComponent } from './images/images.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,
