@@ -2,12 +2,12 @@
 
 <ul *ngFor = "let image of images">
     <li class="images">
-        <a>
-            <span class="badge"> Name: {{image.fileName}} </span> <br>
+        <a (click)="edit(hero)">
+            <span class="badge"> Image File: {{image.fileName}} </span> <br>
             <span> <img src='data:image/png;base64,{{image.imageThumb}}' alt="Thumbnail Image"> </span>
             <span> <img src='data:image/png;base64,{{image.imageFull}}'alt="Full Image"> </span>
+            <input *ngIf="image===editImage" [(ngModel)]="image.fileName" (blur)="update()" (keyup.enter)="update()">
         </a>
+        <button class="delete" title="delete image file" (click)="delete(image)">x</button>
      </li>
 </ul>
-
- 
