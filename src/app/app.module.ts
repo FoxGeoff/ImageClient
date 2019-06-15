@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { InMemoryDataService } from './services/in-memory-data.service';
 
 import { RequestCache, RequestCacheWithMap } from './services/request-cache.service';
-     
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
@@ -16,6 +16,7 @@ import { MessageService } from './services/message.service';
 import { HeroesService } from './heroes/heroes.service';
 import { HttpErrorHandler } from './services/http-error-handler.service';
 import { ImagesComponent } from './images/images.component';
+import { ImagesService } from './images/images.service';
 
 @NgModule({
   declarations: [
@@ -31,14 +32,16 @@ import { ImagesComponent } from './images/images.component';
     //Always import the HttpClientInMemoryWebApiModule after the
     //HttpClientModule to ensure that the in-memory backend provider 
     //supersedes the Angular version.
+
     environment.production ?
-    [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+      [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
     HttpErrorHandler,
     MessageService,
     { provide: RequestCache, useClass: RequestCacheWithMap },
     HeroesService,
+    ImagesService,
   ],
   bootstrap: [AppComponent]
 })

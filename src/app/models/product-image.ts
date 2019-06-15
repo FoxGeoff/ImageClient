@@ -1,6 +1,6 @@
 export interface ProductImage {
-    id: number,
-    fileName: string,
-    imageThumb: string,
-    imageFull: string
+    id: number;
+    fileName: string;
+    imageThumb: string;
+    imageFull: string;
 }

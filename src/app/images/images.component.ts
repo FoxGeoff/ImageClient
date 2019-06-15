@@ -9,7 +9,7 @@ import { ImagesService } from './images.service';
 })
 export class ImagesComponent implements OnInit {
   images: ProductImage[];
-  editImage: ProductImage;
+  editImage: ProductImage; // the productImage currently being edited
 
   constructor(private imagesSevice: ImagesService) { }
 
@@ -19,7 +19,14 @@ export class ImagesComponent implements OnInit {
 
   getImages(): void {
     this.imagesSevice.getImages()
-      .subscribe(images => this.images = images);
+      .subscribe(
+        (data: ProductImage[]) => {
+          console.log(data);
+          this.images = data;
+        },
+        (err) => console.log(err),
+        () => console.log('Finished getting data from server:: getImages()')
+      );
   }
 
 }
